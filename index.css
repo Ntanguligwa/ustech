@@ -1,0 +1,709 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
+  color: #1a1a2e;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  background-color: #00BFB3;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+#logo-img {
+  height: 150px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-menu {
+  color: black;
+  text-decoration: none;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.header-menu:hover {
+  background-color: black;
+  color: white;
+}
+
+.header-menu:focus {
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Slideshow */
+.act-img {
+  height: 85vh;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+  position: relative;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+  background-color: #00BFB3;
+}
+
+.fade {
+  animation-name: fadeEffect;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4}
+  to {opacity: 1}
+}
+
+/* About Section - Improved */
+#who-we-are {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+
+#about, #mission, #vision {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  padding: 0 40px;
+}
+
+#about h1, #mission h1, #vision h1 {
+  color: #00BFB3;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  display: inline-block;
+  border-left: 4px solid #00BFB3;
+  padding-left: 15px;
+}
+
+.about {
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+/* Mission & Vision specific */
+#mission {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+#vision {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Projects Section */
+.heading {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 50px 0 20px;
+  color: #1a1a2e;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #00BFB3;
+}
+
+.projects-p {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #666;
+  animation: blink 1.5s infinite;
+}
+
+.projects-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  flex: 1 1 350px;
+  max-width: 400px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.projects-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.projects-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.projects-container:hover .projects-img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #00BFB3;
+  transition: left 0.5s ease;
+  opacity: 0.9;
+}
+
+.projects-container:hover .overlay {
+  left: 0;
+}
+
+.projects-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects-container:hover .projects-text {
+  opacity: 1;
+}
+
+/* Partners Section - Centered and Symmetrical */
+#partner {
+  padding: 60px 20px;
+  background: #f0f0f0;
+}
+
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.donor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 100%;
+}
+
+.partner-img {
+  height: 90px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(10%);
+}
+
+.partner-img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+}
+
+/* Footer */
+#footer {
+  background-color: #0a0a2a;
+  padding: 50px 40px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+  text-align: left;
+}
+
+.footer {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.sectionf {
+  margin-top: 15px;
+}
+
+.footer-links {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-block;
+  margin: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-links:hover {
+  color: #00BFB3;
+  background: transparent;
+}
+
+#address p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.material-icons {
+  vertical-align: middle;
+  color: #B00020;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin: 5px 5px 5px 0;
+  background: #1a1a3e;
+  color: white;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa:hover {
+  background: #00BFB3;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 55px;
+  height: 55px;
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.whatsapp-text {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 14px;
+  color: white;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+}
+
+.whatsapp-button:hover {
+  width: 170px;
+  background-color: #1ebe57;
+}
+
+.whatsapp-button:hover .whatsapp-text {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+#copyright {
+  background: #0a0a2a;
+  color: #aaa !important;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - ALL SCREEN SIZES */
+/* ============================================ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px 40px;
+  }
+  
+  .header-menu {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .act-img {
+    height: 65vh;
+  }
+  
+  .about, #mission .about, #vision .about {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Landscape & Small Tablet (481px - 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 20px;
+    position: relative;
+  }
+  
+  #logo-img {
+    height: 45px;
+  }
+  
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 65%;
+    height: auto;
+    background-color: #00BFB3;
+    box-shadow: -2px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    padding: 80px 20px 30px;
+    z-index: 999;
+    gap: 5px;
+  }
+  
+  .nav-menu.show {
+    right: 0;
+  }
+  
+  .header-menu {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .act-img {
+    height: 50vh;
+  }
+  
+  #about, #mission, #vision {
+    padding: 0 25px;
+  }
+  
+  #mission, #vision {
+    padding: 20px 25px;
+    margin-bottom: 25px;
+  }
+  
+  #about h1, #mission h1, #vision h1 {
+    font-size: 1.5rem;
+  }
+  
+  .about {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .heading {
+    font-size: 1.8rem;
+    margin: 35px 0 15px;
+  }
+  
+  .projects-row {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .project-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .projects-img {
+    height: 220px;
+  }
+  
+  .scroll-container, .donor {
+    gap: 30px;
+  }
+  
+  .partner-img {
+    height: 65px;
+    max-width: 120px;
+  }
+  
+  #footer {
+    padding: 40px 25px 25px;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer {
+    text-align: center;
+  }
+  
+  #address p {
+    justify-content: center;
+  }
+  
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .whatsapp-button img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .whatsapp-button:hover {
+    width: 150px;
+  }
+}
+
+/* Mobile Portrait (up to 480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+  
+  #logo-img {
+    height: 40px;
+  }
+  
+  .hamburger {
+    top: 14px;
+    right: 15px;
+    font-size: 24px;
+  }
+  
+  .nav-menu {
+    width: 75%;
+    padding: 70px 15px 25px;
+  }
+  
+  .act-img {
+    height: 40vh;
+  }
+  
+  #about, #mission, #vision {
+    padding: 0 18px;
+  }
+  
+  #mission, #vision {
+    padding: 18px 18px;
+  }
+  
+  #about h1, #mission h1, #vision h1 {
+    font-size: 1.3rem;
+    padding-left: 12px;
+  }
+  
+  .about {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+  }
+  
+  .projects-p {
+    font-size: 0.85rem;
+  }
+  
+  .projects-img {
+    height: 190px;
+  }
+  
+  .projects-text {
+    font-size: 1rem;
+  }
+  
+  .scroll-container, .donor {
+    gap: 20px;
+  }
+  
+  .partner-img {
+    height: 55px;
+    max-width: 100px;
+  }
+  
+  #footer {
+    padding: 30px 18px 20px;
+    gap: 25px;
+  }
+  
+  .footer-links {
+    font-size: 0.85rem;
+  }
+  
+  .fa {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+  
+  .whatsapp-button {
+    width: 45px;
+    height: 45px;
+    bottom: 12px;
+    right: 12px;
+  }
+  
+  .whatsapp-button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .whatsapp-text {
+    font-size: 12px;
+  }
+  
+  .whatsapp-button:hover {
+    width: 135px;
+  }
+  
+  #copyright {
+    font-size: 0.75rem;
+    padding: 15px;
+  }
+}
